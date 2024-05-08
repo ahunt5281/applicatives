@@ -9,14 +9,52 @@
  */
 
 export function minBy(array, cb) {
-  // Your code goes here...
+  let lowest;
+  let minElem;
 
+  for (let elem of array) {
+    const result = cb(elem);
+
+    if (typeof result === 'string') {
+      if (!lowest || result < lowest) {
+        lowest = result;
+        minElem = elem;
+      }
+    } else if (typeof result === 'number') {
+      if (result < lowest || lowest === undefined) {
+        lowest = result;
+        minElem = elem;
+      }
+    }
+  }
+
+  return minElem;
 }
+
 
 export function maxBy(array, cb) {
-  // Your code goes here...
+  let highest;
+  let maxElem;
 
+  for (let elem of array) {
+    const result = cb(elem);
+
+    if (typeof result === 'string') {
+      if (!highest || result > highest) {
+        highest = result;
+        maxElem = elem;
+      }
+    } else if (typeof result === 'number') {
+      if (result > highest || highest === undefined) {
+        highest = result;
+        maxElem = elem;
+      }
+    }
+  }
+
+  return maxElem;
 }
+
 
 
 // === TEST YOURSELF ===
