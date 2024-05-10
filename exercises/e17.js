@@ -9,51 +9,23 @@
  */
 
 export function minBy(array, cb) {
-  let lowest;
-  let minElem;
-
-  for (let elem of array) {
+  return array.reduce((minElem, elem) => {
     const result = cb(elem);
-
-    if (typeof result === 'string') {
-      if (!lowest || result < lowest) {
-        lowest = result;
-        minElem = elem;
-      }
-    } else if (typeof result === 'number') {
-      if (result < lowest || lowest === undefined) {
-        lowest = result;
-        minElem = elem;
-      }
-    }
-  }
-
-  return minElem;
+    const isSmaller = typeof result === 'string' ? result < cb(minElem) : result < cb(minElem);
+    return isSmaller ? elem : minElem;
+  }, array[0]);
 }
+
 
 
 export function maxBy(array, cb) {
-  let highest;
-  let maxElem;
-
-  for (let elem of array) {
+  return array.reduce((maxElem, elem) => {
     const result = cb(elem);
-
-    if (typeof result === 'string') {
-      if (!highest || result > highest) {
-        highest = result;
-        maxElem = elem;
-      }
-    } else if (typeof result === 'number') {
-      if (result > highest || highest === undefined) {
-        highest = result;
-        maxElem = elem;
-      }
-    }
-  }
-
-  return maxElem;
+    const isBigger = typeof result === 'string' ? result > cb(maxElem) : result > cb(maxElem);
+    return isBigger ? elem : maxElem;
+  }, array[0]);
 }
+
 
 
 

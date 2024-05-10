@@ -76,7 +76,7 @@ export const data = {
         'Valétudo',      'S/2017 J 2',  'S/2017 J 3',
         'Pandia',        'S/2017 J 5',  'S/2017 J 6',
         'S/2017 J 7',    'S/2017 J 8',  'S/2017 J 9',
-        'Ersa',          'S/2003 J 24'
+        'Ersa',          'S/2003 J 24' 
       ]
     },
     {
